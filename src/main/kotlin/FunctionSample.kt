@@ -1,6 +1,14 @@
 fun main() {
     val function = FunctionSample()
 
+    //calling function default params
+    function.carBooking(carNo = 10)
+    function.carBooking(carNo = 10, carModel = "BMW", isItAvailable = false)
+    function.carBooking("Ferrari", 45, false)
+
+    //one line fun return
+    println(function.carNumberplate("01"))
+    println(function.carNumberplate("15"))
 }
 
 
@@ -26,15 +34,18 @@ class FunctionSample {
     }
 
     //default params with the function
-    fun carBooking(carModel: String = "KIA Motors", carNo: Int, isItAvailable: Boolean = true) : Boolean{
-        println("car model: $carModel \n carNo: $carNo \n ")
+    fun carBooking(carModel: String = "KIA Motors", carNo: Int, isItAvailable: Boolean = true): Boolean {
+        println("car model: $carModel \ncarNo: $carNo ")
         if (isItAvailable)
-            print("car is Available")
+            println("car is Available")
         else
-            print("car is not Available")
+            println("car is not Available")
 
         return isItAvailable
     }
+
+    //one line function
+    fun carNumberplate(num: String) = if (num.toInt() < 10) "PY $num" else "TN $num"
 
 
 }
