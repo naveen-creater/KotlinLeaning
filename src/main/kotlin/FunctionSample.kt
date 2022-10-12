@@ -9,6 +9,10 @@ fun main() {
     //one line fun return
     println(function.carNumberplate("01"))
     println(function.carNumberplate("15"))
+
+    //with null
+    println(function.carAge(null))
+    println(function.carAge("58"))
 }
 
 
@@ -46,6 +50,20 @@ class FunctionSample {
 
     //one line function
     fun carNumberplate(num: String) = if (num.toInt() < 10) "PY $num" else "TN $num"
+
+    //null return
+    fun carAge(age: Any?): Int? {
+        if (age != null) {
+            if (age is String) {
+                return age.toInt()
+            }
+
+            return null
+        } else {
+            return age
+        }
+
+    }
 
 
 }

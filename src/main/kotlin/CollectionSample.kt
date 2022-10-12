@@ -2,7 +2,10 @@ import java.util.*
 
 fun main() {
 
-listSample()
+//    listSample()
+//    setSample()
+//    arraySample()
+    mapSample()
 }
 
 fun arraySample() {
@@ -33,13 +36,13 @@ fun listSample() {
     //mutable
     val mutableList = mutableListOf("naveen", "kumar")
 
-    println(list intersect  mutableList) // common values of 2 list
-    println(list union   mutableList) // add all values
+    println(list intersect mutableList) // common values of 2 list
+    println(list union mutableList) // add all values
 
-    val list1 = listOf(1,2,3,3)
-    val list2 = listOf(3,4,5,6)
+    val list1 = listOf(1, 2, 3, 3)
+    val list2 = listOf(3, 4, 5, 6)
 
-    val u:Set<Int> = list1 intersect  list2
+    val u: Set<Int> = list1 intersect list2
 
     println(u)
 
@@ -49,17 +52,49 @@ fun listSample() {
 
 }
 
-fun setSample(){
-    val name = setOf("naveen", "kumar", "naveen", "pondy")
-    val area = mutableSetOf("pondy", "chennai", "bangalore")
+fun mapSample() {
+    val maps = mapOf("naveen" to 26, "sathish" to 28, "kalappan" to 56, "thenmozhi" to 45)
+    val mutableMap: MutableMap<String, Int> = mutableMapOf()
+    mutableMap.putAll(maps)
+    mutableMap.put("arun",31)
 
-    println(name intersect  area)
+    println(mutableMap.count{
+        it.value > 30
+    })
+
+
+    //filters
+    val allFilers = mutableMap.filter {
+        it.value > 30 || it.key.equals("naveen")
+    }
+
+    val filterKeys = mutableMap.filterKeys {
+        it.equals("Thenmozhi", true)
+    }
+    println(filterKeys)
+
+    val filterValues = mutableMap.filterValues {
+        it < 50
+    }
+
+    println(mutableMap.get("NotName"))
+    //get default value
+    println(mutableMap.getOrDefault("NotName", -1))
+
 
 }
 
-fun loop(){
+fun setSample() {
+    val name = setOf("naveen", "kumar", "naveen", "pondy")
+    val area = mutableSetOf("pondy", "chennai", "bangalore")
+
+    println(name intersect area)
+
+}
+
+fun loop() {
     val i = 1..10
-    for (ey in i){
+    for (ey in i) {
         println(ey)
     }
 }
