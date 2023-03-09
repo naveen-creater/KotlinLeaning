@@ -13,6 +13,13 @@ fun main() {
     //with null
     println(function.carAge(null))
     println(function.carAge("58"))
+
+    //vararg function call
+    bookGet("Programing", "java","kotlin","ktor","dart")
+
+    //Lambda function call
+    val lamda:(String) -> Unit = {na -> println(na.length)}
+    lamFun("Naveen kumar", lamda)
 }
 
 
@@ -66,5 +73,17 @@ class FunctionSample {
     }
 
 
+}
+
+//vararg function
+fun bookGet(name: String, vararg books: String) {
+    println(name)
+    books.forEach { println(it) }
+}
+
+//lambda function
+fun lamFun(name:String, action:(String) ->Unit){
+    println(name)
+    action(name)
 }
 
